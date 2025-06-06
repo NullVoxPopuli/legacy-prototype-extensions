@@ -1,13 +1,37 @@
 {
-  "name": "",
+  "name": "@nullvoxpopuli/legacy-prototype-extensions",
   "version": "0.0.0",
   "description": "The default blueprint for Embroider v2 addons.",
   "keywords": [
     "ember-addon"
   ],
-  "repository": "",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:NullVoxPopuli/legacy-prototype-extensions.git"
+  },
   "license": "MIT",
   "author": "",
+  "imports": {
+    "#src/*": "./src/*"
+  },
+  "exports": {
+    ".": {
+      "types": "./declarations/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./*": {
+      "types": "./declarations/*.d.ts",
+      "default": "./dist/*.js"
+    },
+    "./addon-main.js": "./addon-main.cjs"
+  },
+  "typesVersions": {
+    "*": {
+      "*": [
+        "declarations/*"
+      ]
+    }
+  },
   "files": [
     "addon-main.cjs",
     "declarations",
@@ -20,13 +44,13 @@
     "lint:fix": "concurrently \"pnpm:lint:*:fix\" --names \"fix:\" --prefixColors auto && pnpm run format",
     "lint:format": "prettier . --cache --check",
     "lint:hbs": "ember-template-lint . --no-error-on-unmatched-pattern",
-    "lint:js": "eslint . --cache",
     "lint:hbs:fix": "ember-template-lint . --fix --no-error-on-unmatched-pattern",
+    "lint:js": "eslint . --cache",
     "lint:js:fix": "eslint . --fix",
     "lint:types": "glint",
+    "prepack": "rollup --config",
     "start": "vite dev",
-    "test": "vite build --mode=development && testem --file testem.cjs ci --port 0",
-    "prepack": "rollup --config"
+    "test": "vite build --mode=development && testem --file testem.cjs ci --port 0"
   },
   "dependencies": {
     "@embroider/addon-shim": "^1.8.9",
@@ -69,11 +93,16 @@
     "prettier-plugin-ember-template-tag": "^2.0.4",
     "qunit": "^2.24.1",
     "qunit-dom": "^3.4.0",
+    "release-plan": "^0.16.0",
     "rollup": "^4.22.5",
     "testem": "^3.15.1",
     "typescript": "~5.6.0",
     "typescript-eslint": "^8.19.1",
     "vite": "^6.2.4"
+  },
+  "packageManager": "pnpm@10.11.1",
+  "publishConfig": {
+    "access": "public"
   },
   "ember": {
     "edition": "octane"
@@ -82,30 +111,5 @@
     "version": 2,
     "type": "addon",
     "main": "addon-main.cjs"
-  },
-  "imports": {
-    "#src/*": "./src/*"
-  },
-  "exports": {
-    ".": {
-      "types": "./declarations/index.d.ts",
-      "default": "./dist/index.js"
-    },
-    "./*": {
-      "types": "./declarations/*.d.ts",
-      "default": "./dist/*.js"
-    },
-    "./addon-main.js": "./addon-main.cjs"
-  },
-  "typesVersions": {
-    "*": {
-      "*": [
-        "declarations/*"
-      ]
-    }
-  },
-  "publishConfig": {
-    "access": "public"
-  },
-  "packageManager": "pnpm@10.11.1"
+  }
 }
