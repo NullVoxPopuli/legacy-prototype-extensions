@@ -10,10 +10,10 @@ module('apply', function () {
     NativeArray.apply(ThrowAwayArray.prototype);
 
     // Create an instance to test
-    let obj = new ThrowAwayArray();
+    const obj = new ThrowAwayArray();
 
     // Make sure that no enumerable properties refer back to the object (creating a cyclic structure)
-    for (let p in obj) {
+    for (const p in obj) {
       assert.notStrictEqual(
         obj[p],
         obj,
