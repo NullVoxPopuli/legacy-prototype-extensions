@@ -14,7 +14,7 @@ module('apply', function () {
 
     // Make sure that no enumerable properties refer back to the object (creating a cyclic structure)
     for (let p in obj) {
-      this.assert.notStrictEqual(
+      assert.notStrictEqual(
         obj[p],
         obj,
         `Property "${p}" is an enumerable part of the prototype
