@@ -14,7 +14,7 @@ This addon is not meant for new projects!!!!
 
 ```js
 // somewhere -- perhaps app/app.js
-import '@nullvoxpopuli/legacy-prototype-extensions';
+import '@nullvoxpopuli/legacy-prototype-extensions/array';
 
 ```
 
