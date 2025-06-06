@@ -5,6 +5,8 @@ import { NativeArray } from '@ember/array';
  * NOTE: this is a temporary hack as I bet that this export
  *       will be on the chopping block as soon as someone remembers at the
  *       same time that they have the motivation to do it.
+ *
+ * But for now, because NativeArray has a bunch of tests, we don't need as many tests ourselves.
  */
 NativeArray.apply(Array.prototype, true);
 
