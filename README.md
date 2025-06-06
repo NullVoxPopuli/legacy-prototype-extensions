@@ -1,6 +1,6 @@
 # @nullvoxpopuli/legacy-prototype-extensions
 
-Want to upgrade ember to v6? [but your app have _intense_ usage of array prototype extensions](https://deprecations.emberjs.com/v5.x#toc_deprecate-array-prototype-extensions)?
+Want to upgrade ember to v6? [but your app has _intense_ usage of array prototype extensions](https://deprecations.emberjs.com/v5.x#toc_deprecate-array-prototype-extensions)?
 
 Now you can keep them alive with this addon.
 
