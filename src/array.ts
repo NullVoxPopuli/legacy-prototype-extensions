@@ -17,3 +17,12 @@ export const A = function <T>(this: unknown, arr?: Array<T>) {
   // SAFTEY: Since we are extending prototypes all true native arrays are Ember NativeArrays
   return (arr || []) as NativeArray<T>;
 };
+
+import type MutableArray from '@ember/array/mutable';
+/**
+ * DANGER! this is a side-effect
+ */
+declare global {
+  // eslint-disable-next-line @typescript-eslint/no-empty-object-type
+  interface Array<T> extends Omit<MutableArray<T>, '[]'> {}
+}
