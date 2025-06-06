@@ -1,0 +1,26 @@
+{
+  "solution": {
+    "@nullvoxpopuli/legacy-prototype-extensions": {
+      "impact": "minor",
+      "oldVersion": "0.0.0",
+      "newVersion": "0.1.0",
+      "tagName": "latest",
+      "constraints": [
+        {
+          "impact": "minor",
+          "reason": "Appears in changelog section :rocket: Enhancement"
+        },
+        {
+          "impact": "patch",
+          "reason": "Appears in changelog section :memo: Documentation"
+        },
+        {
+          "impact": "patch",
+          "reason": "Appears in changelog section :house: Internal"
+        }
+      ],
+      "pkgJSONPath": "./package.json"
+    }
+  },
+  "description": "## Release (2025-06-06)\n\n* @nullvoxpopuli/legacy-prototype-extensions 0.1.0 (minor)\n\n#### :rocket: Enhancement\n* `@nullvoxpopuli/legacy-prototype-extensions`\n  * [#1](https://github.com/NullVoxPopuli/legacy-prototype-extensions/pull/1) Array prototype extensions ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n\n#### :memo: Documentation\n* `@nullvoxpopuli/legacy-prototype-extensions`\n  * [#4](https://github.com/NullVoxPopuli/legacy-prototype-extensions/pull/4) Update README ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n\n#### :house: Internal\n* `@nullvoxpopuli/legacy-prototype-extensions`\n  * [#2](https://github.com/NullVoxPopuli/legacy-prototype-extensions/pull/2) Release plan ([@NullVoxPopuli](https://github.com/NullVoxPopuli))\n\n#### Committers: 1\n- [@NullVoxPopuli](https://github.com/NullVoxPopuli)\n"
+}
