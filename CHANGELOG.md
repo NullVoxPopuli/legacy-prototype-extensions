@@ -1,5 +1,20 @@
 # Changelog
 
+## Release (2025-06-27)
+
+* @nullvoxpopuli/legacy-prototype-extensions 0.1.1 (patch)
+
+#### :memo: Documentation
+* `@nullvoxpopuli/legacy-prototype-extensions`
+  * [#5](https://github.com/NullVoxPopuli/legacy-prototype-extensions/pull/5) Fix docs -- we need to import the array subpath ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### :house: Internal
+* `@nullvoxpopuli/legacy-prototype-extensions`
+  * [#8](https://github.com/NullVoxPopuli/legacy-prototype-extensions/pull/8) More tests ([@NullVoxPopuli](https://github.com/NullVoxPopuli))
+
+#### Committers: 1
+- [@NullVoxPopuli](https://github.com/NullVoxPopuli)
+
 ## Release (2025-06-06)
 
 * @nullvoxpopuli/legacy-prototype-extensions 0.1.0 (minor)
