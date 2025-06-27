@@ -1,6 +1,7 @@
 # compiled output
 dist/
 declarations/
+src/**/*.d.ts
 
 # from scenarios
 tmp/
