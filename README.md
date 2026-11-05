@@ -19,6 +19,20 @@ import '@nullvoxpopuli/legacy-prototype-extensions/array';
 ```
 
 and that's it.
-This library re-patches the Array.prototype, but allows you to set 
 
-You can set `EXTEND_PROTOTYPES: false`, just as the [deprecation guide](https://deprecations.emberjs.com/v5.x#toc_deprecate-array-prototype-extensions) says, but you don't need to change any code.
+This library adds the `NativeArray` methods to `Array.prototype` again.
+It does not use `NativeArray`, `Mixin`, or other deprecated Ember APIs to do this.
+It only uses `@ember/object`, `@ember/object/observers`, `@ember/object/internals`, `@ember/utils`, and `@ember/debug`.
+
+The [deprecation guide](https://deprecations.emberjs.com/v5.x#toc_deprecate-array-prototype-extensions) tells you to set `EXTEND_PROTOTYPES: false`. You can do that, and you do not need to change other code.
+
+If you use `A()`, you can import it from this library:
+
+```js
+import { A } from '@nullvoxpopuli/legacy-prototype-extensions/array';
+```
+
+### Differences from Ember's `NativeArray`
+
+- The methods do not send array observer events (`@array:before` / `@array:change`). Ember can only send these with deprecated APIs. Thus, an `ArrayProxy` (deprecated in Ember 7.4) that wraps a native array does not see changes made with these methods. Tracked templates, `computed('arr.[]')`, `computed('arr.@each.prop')`, and observers on `length`, `[]`, `firstObject`, and `lastObject` continue to update.
+- The private `beginPropertyChanges`, `endPropertyChanges`, and `hasObserverFor` methods are not added.
