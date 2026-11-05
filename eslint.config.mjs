@@ -86,6 +86,21 @@ const config = [
       'import/extensions': ['error', 'always', { ignorePackages: true }],
     },
   },
+  {
+    files: ['src/array.ts', 'tests/**/*'],
+    rules: {
+      'ember/no-get': 'off',
+      'ember/no-observers': 'off',
+      'ember/no-array-prototype-extensions': 'off',
+    },
+  },
+  {
+    files: ['tests/**/*'],
+    rules: {
+      'ember/no-computed-properties-in-native-classes': 'off',
+      '@typescript-eslint/no-for-in-array': 'off',
+    },
+  },
   /**
    * CJS node files
    */

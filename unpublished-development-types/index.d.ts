@@ -12,3 +12,4 @@ import '@glint/environment-ember-template-imports';
 //     // See https://typed-ember.gitbook.io/glint/using-glint/ember/using-addons
 //   }
 // }
+import 'qunit-dom';

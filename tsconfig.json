@@ -18,6 +18,8 @@
       "@embroider/core/virtual",
       "unplugin-info/client"
     ],
-    "paths": {}
+    "paths": {
+      "@nullvoxpopuli/legacy-prototype-extensions/*": ["./src/*"]
+    }
   }
 }
