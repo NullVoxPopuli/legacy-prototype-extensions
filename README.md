@@ -35,4 +35,6 @@ import { A } from '@nullvoxpopuli/legacy-prototype-extensions/array';
 ### Differences from Ember's `NativeArray`
 
 - The methods do not send array observer events (`@array:before` / `@array:change`). Ember can only send these with deprecated APIs. Thus, an `ArrayProxy` (deprecated in Ember 7.4) that wraps a native array does not see changes made with these methods. Tracked templates, `computed('arr.[]')`, `computed('arr.@each.prop')`, and observers on `length`, `[]`, `firstObject`, and `lastObject` continue to update.
+- `EmberArray.detect([])` and `MutableArray.detect([])` return `false`. Before, they returned `true`, because the mixin was applied to `Array.prototype`. Use `Array.isArray` or `isArray` from `@ember/array` instead.
+- `addObjects` and `removeObjects` do not batch their changes. Synchronous observers run one time for each item.
 - The private `beginPropertyChanges`, `endPropertyChanges`, and `hasObserverFor` methods are not added.

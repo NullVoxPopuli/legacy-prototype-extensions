@@ -150,6 +150,21 @@ module('EmberArray methods', function () {
     assert.deepEqual(list.invoke('greet', 'hi'), ['hi a', undefined]);
   });
 
+  test('invoke calls methods with the item as this', function (assert) {
+    class Model {
+      constructor(public id: number) {}
+
+      save(suffix: string) {
+        return `${this.id}${suffix}`;
+      }
+    }
+
+    assert.deepEqual([new Model(1), new Model(2)].invoke('save', '!'), [
+      '1!',
+      '2!',
+    ]);
+  });
+
   test('toArray', function (assert) {
     const arr = [1, 2];
     const copy = arr.toArray();
