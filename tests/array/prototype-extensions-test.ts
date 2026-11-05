@@ -98,7 +98,7 @@ module('EmberArray methods', function () {
     const list = people();
     const result = list.setEach('age', 9);
 
-    assert.strictEqual(result, list);
+    assert.strictEqual(result, undefined);
     assert.deepEqual(list.mapBy('age'), [9, 9, 9]);
   });
 

@@ -14,6 +14,9 @@ importers:
       decorator-transforms:
         specifier: ^2.2.2
         version: 2.3.0(@babel/core@7.27.4)
+      ember-undeprecate-ember-a:
+        specifier: ^0.0.1
+        version: 0.0.1(ember-source@6.12.1(@glimmer/component@2.0.0)(rsvp@4.8.5))
     devDependencies:
       '@babel/core':
         specifier: ^7.25.2
@@ -3031,6 +3034,11 @@ packages:
     resolution: {integrity: sha512-yj/LIvtBv9zL7RJ8Fz+RURxZeYa1d+rCTnWSAjUFho74ywq55uht71+Nu8Svr5SL4eQXCdXmS7hWl+LCVPJvqg==}
     engines: {node: ^18.18.0 || >= 20.9.0}
     hasBin: true
+
+  ember-undeprecate-ember-a@0.0.1:
+    resolution: {integrity: sha512-2is0mHau/38sgfu7TV25LNtDSk3pEcnldvfCelEgZowa+eXqWNFbTFg9ztxEscj+8Rjt7tRpKwBUNqOjFBPf/w==}
+    peerDependencies:
+      ember-source: '>= 5.12.0'
 
   emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}
@@ -8673,7 +8681,7 @@ snapshots:
 
   babel-plugin-ember-template-compilation@2.4.1:
     dependencies:
-      '@glimmer/syntax': 0.94.9
+      '@glimmer/syntax': 0.97.0
       babel-import-util: 3.0.1
 
   babel-plugin-ember-template-compilation@3.0.0:
@@ -9786,6 +9794,11 @@ snapshots:
     dependencies:
       '@lint-todo/utils': 13.1.1
       content-tag: 3.1.3
+
+  ember-undeprecate-ember-a@0.0.1(ember-source@6.12.1(@glimmer/component@2.0.0)(rsvp@4.8.5)):
+    dependencies:
+      '@embroider/addon-shim': 1.11.0
+      ember-source: 6.12.1(@glimmer/component@2.0.0)(rsvp@4.8.5)
 
   emoji-regex@8.0.0: {}
 
