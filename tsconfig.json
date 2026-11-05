@@ -5,18 +5,19 @@
  */
 {
   "extends": "@ember/app-tsconfig",
-  "glint": {
-    "environment": ["ember-loose", "ember-template-imports"]
-  },
-  "include": ["src", "tests", "unpublished-development-types"],
+  "include": [
+    "src/**/*",
+    "tests/**/*",
+    "unpublished-development-types/**/*",
+    "demo-app/**/*"
+  ],
   "compilerOptions": {
     "rootDir": ".",
     "types": [
       "ember-source/types",
       "vite/client",
-      "kolay/virtual",
       "@embroider/core/virtual",
-      "unplugin-info/client"
+      "@glint/ember-tsc/types"
     ],
     "paths": {
       "@nullvoxpopuli/legacy-prototype-extensions/*": ["./src/*"]

@@ -1,3 +1,8 @@
+/**
+ * This babel.config is not used for publishing.
+ * It's only for the local editing experience
+ * (and linting)
+ */
 const { buildMacros } = require('@embroider/macros/babel');
 
 const {
