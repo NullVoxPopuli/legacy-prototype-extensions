@@ -22,7 +22,8 @@ and that's it.
 
 This library adds the `NativeArray` methods to `Array.prototype` again.
 It does not use `NativeArray`, `Mixin`, or other deprecated Ember APIs to do this.
-It only uses `@ember/object`, `@ember/object/observers`, `@ember/object/internals`, `@ember/utils`, and `@ember/debug`.
+The methods come from [ember-undeprecate-ember-a](https://github.com/NullVoxPopuli/ember-undeprecate-ember-a).
+Only `addObserver`, `removeObserver`, and `cacheFor` are implemented here, with `@ember/object/observers` and `@ember/object/internals`, because ember-undeprecate-ember-a does not support observers.
 
 The [deprecation guide](https://deprecations.emberjs.com/v5.x#toc_deprecate-array-prototype-extensions) tells you to set `EXTEND_PROTOTYPES: false`. You can do that, and you do not need to change other code.
 
@@ -38,3 +39,4 @@ import { A } from '@nullvoxpopuli/legacy-prototype-extensions/array';
 - `EmberArray.detect([])` and `MutableArray.detect([])` return `false`. Before, they returned `true`, because the mixin was applied to `Array.prototype`. Use `Array.isArray` or `isArray` from `@ember/array` instead.
 - `addObjects` and `removeObjects` do not batch their changes. Synchronous observers run one time for each item.
 - The private `beginPropertyChanges`, `endPropertyChanges`, and `hasObserverFor` methods are not added.
+- `setEach` returns `undefined`, as Ember's `setEach` does. Versions 0.1.0 and earlier of this library returned the array.
