@@ -57,6 +57,16 @@ const config = [
     files: ['**/*.js'],
     languageOptions: {
       parser: babelParser,
+      parserOptions: {
+        requireConfigFile: false,
+        babelOptions: {
+          configFile: false,
+          babelrc: false,
+          parserOpts: {
+            plugins: [['decorators', { decoratorsBeforeExport: true }]],
+          },
+        },
+      },
     },
   },
   {
