@@ -1,7 +1,6 @@
-'use strict';
-
-module.exports = {
+export default {
   extends: 'recommended',
+  checkHbsTemplateLiterals: false,
   overrides: [
     {
       files: ['tests/**/*'],

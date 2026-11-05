@@ -1,12 +1,13 @@
 # compiled output
 dist/
+dist-tests/
 declarations/
 src/**/*.d.ts
 
 # from scenarios
 tmp/
 config/optional-features.json
-ember-cli-build.js
+ember-cli-build.cjs
 
 # npm/pnpm/yarn pack output
 *.tgz
@@ -15,3 +16,6 @@ ember-cli-build.js
 node_modules/
 .eslintcache
 .prettiercache
+
+# potentially containing secrets
+*.local

@@ -12,8 +12,9 @@
  *     npx eslint --inspect-config
  *
  */
-import babelParser from '@babel/eslint-parser';
+import babelParser from '@babel/eslint-parser/experimental-worker';
 import js from '@eslint/js';
+import { defineConfig, globalIgnores } from 'eslint/config';
 import prettier from 'eslint-config-prettier';
 import ember from 'eslint-plugin-ember/recommended';
 import importPlugin from 'eslint-plugin-import';
@@ -28,23 +29,16 @@ const esmParserOptions = {
 
 const tsParserOptions = {
   projectService: true,
-  project: true,
   tsconfigRootDir: import.meta.dirname,
 };
 
-const config = [
+export default defineConfig([
+  globalIgnores(['dist/', 'dist-*/', 'declarations/', 'coverage/', '!**/.*']),
   js.configs.recommended,
   prettier,
   ember.configs.base,
   ember.configs.gjs,
   ember.configs.gts,
-  /**
-   * Ignores must be in their own object
-   * https://eslint.org/docs/latest/use/configure/ignore
-   */
-  {
-    ignores: ['dist/', 'declarations/', 'node_modules/', 'coverage/', '!**/.*'],
-  },
   /**
    * https://eslint.org/docs/latest/use/configure/configuration-files#configuring-linter-options
    */
@@ -57,16 +51,6 @@ const config = [
     files: ['**/*.js'],
     languageOptions: {
       parser: babelParser,
-      parserOptions: {
-        requireConfigFile: false,
-        babelOptions: {
-          configFile: false,
-          babelrc: false,
-          parserOpts: {
-            plugins: [['decorators', { decoratorsBeforeExport: true }]],
-          },
-        },
-      },
     },
   },
   {
@@ -83,8 +67,19 @@ const config = [
     languageOptions: {
       parser: ember.parser,
       parserOptions: tsParserOptions,
+      globals: {
+        ...globals.browser,
+      },
     },
-    extends: [...ts.configs.recommendedTypeChecked, ember.configs.gts],
+    extends: [
+      ...ts.configs.recommendedTypeChecked,
+      // https://github.com/ember-cli/ember-addon-blueprint/issues/119
+      {
+        ...ts.configs.eslintRecommended,
+        files: undefined,
+      },
+      ember.configs.gts,
+    ],
   },
   {
     files: ['src/**/*'],
@@ -115,12 +110,7 @@ const config = [
    * CJS node files
    */
   {
-    files: [
-      '**/*.cjs',
-      '.prettierrc.cjs',
-      '.template-lintrc.cjs',
-      'addon-main.cjs',
-    ],
+    files: ['**/*.cjs'],
     plugins: {
       n,
     },
@@ -151,6 +141,4 @@ const config = [
       },
     },
   },
-];
-
-export default ts.config(...config);
+]);

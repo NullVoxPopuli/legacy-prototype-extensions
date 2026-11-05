@@ -9,11 +9,8 @@ const addon = new Addon({
 });
 
 const rootDirectory = dirname(fileURLToPath(import.meta.url));
-console.log(rootDirectory);
-const configs = {
-  babel: resolve(rootDirectory, './babel.publish.config.cjs'),
-  ts: resolve(rootDirectory, './tsconfig.publish.json'),
-};
+const babelConfig = resolve(rootDirectory, './babel.publish.config.cjs');
+const tsConfig = resolve(rootDirectory, './tsconfig.publish.json');
 
 export default {
   // This provides defaults that work well alongside `publicEntrypoints` below.
@@ -54,7 +51,7 @@ export default {
     babel({
       extensions: ['.js', '.gjs', '.ts', '.gts'],
       babelHelpers: 'bundled',
-      configFile: configs.babel,
+      configFile: babelConfig,
     }),
 
     // Ensure that standalone .hbs files are properly integrated as Javascript.
@@ -66,7 +63,7 @@ export default {
     // Emit .d.ts declaration files
     addon.declarations(
       'declarations',
-      `pnpm exec glint --project ${configs.ts}`,
+      `pnpm ember-tsc --declaration --project ${tsConfig}`,
     ),
 
     // addons are allowed to contain imports of .css files, which we want rollup

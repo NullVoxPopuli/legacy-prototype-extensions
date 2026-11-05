@@ -1,9 +1,11 @@
+/**
+ * This tsconfig is only used for publishing.
+ *
+ * For local dev experience, see the tsconfig.json
+ */
 {
   "extends": "@ember/library-tsconfig",
-  "include": ["src/**/*", "unpublished-development-types/**/*"],
-  "glint": {
-    "environment": ["ember-loose", "ember-template-imports"]
-  },
+  "include": ["./src/**/*", "./unpublished-development-types/**/*"],
   "compilerOptions": {
     "allowJs": true,
     "declarationDir": "declarations",
@@ -20,6 +22,6 @@
     */
     "rootDir": "./src",
 
-    "types": ["ember-source/types"]
+    "types": ["ember-source/types", "@glint/ember-tsc/types"]
   }
 }

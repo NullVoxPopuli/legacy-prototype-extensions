@@ -1,6 +1,10 @@
-import EmberApp from '@ember/application';
-import Resolver from 'ember-resolver';
+import EmberApp from 'ember-strict-application-resolver';
 import EmberRouter from '@ember/routing/router';
+import * as QUnit from 'qunit';
+import { setApplication } from '@ember/test-helpers';
+import { setup } from 'qunit-dom';
+import { start as qunitStart, setupEmberOnerrorValidation } from 'ember-qunit';
+import { setTesting } from '@embroider/macros';
 
 class Router extends EmberRouter {
   location = 'none';
@@ -8,21 +12,17 @@ class Router extends EmberRouter {
 }
 
 class TestApp extends EmberApp {
-  modulePrefix = 'test-app';
-  Resolver = Resolver.withModules({
-    'test-app/router': { default: Router },
+  modules = {
+    './router': Router,
     // add any custom services here
-  });
+    // import.meta.glob('./services/*', { eager: true }),
+  };
 }
 
 Router.map(function () {});
 
-import * as QUnit from 'qunit';
-import { setApplication } from '@ember/test-helpers';
-import { setup } from 'qunit-dom';
-import { start as qunitStart, setupEmberOnerrorValidation } from 'ember-qunit';
-
 export function start() {
+  setTesting(true);
   setApplication(
     TestApp.create({
       autoboot: false,
